@@ -1,0 +1,3 @@
+What is BERT? BERT, which stands for Bidirectional Encoder Representations from Transformers, is a neural network-based technique for natural language processing pre-training. In plain English, it can be used to help Google better discern the context of words in search queries.
+
+Yes this was an example

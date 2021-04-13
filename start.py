@@ -59,11 +59,18 @@ def answer(question):
 	answer = get_ans(decoded_ids,output[0][0],output[1][0])
 	return answer
 
+def get_context():
+	if os.path.isfile('context.txt'):
+		context_file = open("context.txt","r")
+		return context_file.read()
+	print("\n\nError : context.txt File not found. Please Create 'context.txt' file with Context Information\n\n")
+	input("Press any key to Continue...")
+	exit(0)
 
 if __name__ == '__main__':
 	print("Initializing ...")
 	bert_model = TFAutoModelForQuestionAnswering.from_pretrained('distilbert-base-cased-distilled-squad')
-	context = "Sahyadri College is situated in Adyar, Mangalore. The college is going to open on 16th April"
+	context = get_context()
 	context_ids = tokenizer.encode(context)
 	context_ids.pop(0)
 	SEC_TOKEN = generate_token()
