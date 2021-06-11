@@ -17,6 +17,7 @@ app.use('/',(req,res)=>{
 			sec_token : SEC_TOKEN
 		}
 	}).then(function(response) {
+		if(response.data.includes("CLS")) return res.status(200).send("Sorry I did not understand.");
 		return res.status(200).send(response.data);
 	}).catch(function(err) {
 		console.log(err);
